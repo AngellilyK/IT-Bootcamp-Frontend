@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rick and Morty</title>
+    <link rel="icon" href="favicon.ico.svg" type="image/svg+xml">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <main class="cards"></main>
+    <div class="loader">
+        <div class="loader__spinner"></div>
+    </div>
+    <div id="modal" class="modal">
+        <div class="modal__content">
+          <span class="modal__close">&times;</span>
+          <div class="modal__cotainer-img">
+            <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" class="modal__image">
+            <div class="modal__gradient"></div>
+          </div>
+          <div class="modal__info">
+            <div>
+                <h4>Name:</h4>
+                <p class="modal__name-character"></p>
+            </div>
+            <div>
+                <h4>Origin:</h4>
+                <p class="modal__origin-character"></p>
+            </div>
+            <div>
+                <h4>Status:</h4>
+                <p class="modal__status-character"></p>
+            </div>
+            <div>
+                <h4>Location:</h4>
+                <p class="modal__location-character"></p>
+            </div>
+            <div>
+                <h4>Species:</h4>
+                <p class="modal__species-character"></p>
+            </div>
+            <div>
+                <h4>Gender:</h4>
+                <p class="modal__gender-character"></p>
+            </div>
+          </div>
+        </div>     
+      </div>
+    <button class="scrollToTopBtn"></button>
+    <script src="js/script.js"></script>
+</body>
+</html>
