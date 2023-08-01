@@ -10,6 +10,10 @@ const modalLocation = document.querySelector(".modal__location-character");
 const modalSpecies = document.querySelector(".modal__species-character");
 const modalGender = document.querySelector(".modal__gender-character");
 const modalImage = document.querySelector(".modal__image");
+const checkbox = document.querySelector(".form-check__pagination");
+const currentPage = document.querySelector(".pagination__current_page");
+const nextBtn = document.querySelector(".pagination__button-next");
+const prevBtn = document.querySelector(".pagination__button-prev");
 const throttleTime = 1000;
 let page = 1;
 
@@ -17,7 +21,7 @@ let page = 1;
 
 async function getLinkToCharacters() {
     const url = `https://rickandmortyapi.com/api/character?page=${page}`;
-    displayLoading();
+    //displayLoading();
     const response = await fetch(url);
     if (!response.ok) {
         const message = `An error has occured: ${response.status}`;
@@ -162,6 +166,51 @@ modal__close.onclick = function() {
 
 
 
+// pagination
+
+checkbox.addEventListener('click',()=>{
+    if (checkbox.checked){
+        document.querySelector('.pagination').classList.add("pagination_visible");
+        mainContainer.innerHTML="";
+        currentPage.innerText = page;
+        createCharacters();
+    }else{
+        document.querySelector('.pagination').classList.remove("pagination_visible");
+    }
+})
+
+nextBtn.addEventListener('click',()=>{
+    if(page !== 42){
+        page++;
+        recreateCards();
+        if(page==42){
+            nextBtn.classList.add("pagination__button-next_disable");
+            return;
+        }
+    }
+})
+
+prevBtn.addEventListener('click',()=>{
+    if(page !== 1){
+        page--;
+        recreateCards();
+        if(page==1){
+            prevBtn.classList.add("pagination__button-prev_disable");
+            return;
+        }
+    }
+})
+
+function recreateCards(){
+    currentPage.innerText = page;
+    prevBtn.classList.remove("pagination__button-prev_disable");
+    nextBtn.classList.remove("pagination__button-next_disable");
+    mainContainer.innerHTML="";
+    createCharacters();
+}
+
+
+
 window.onclick = function(event) {
     if (event.target == modal) {
       modal.style.display = "none";
@@ -170,7 +219,9 @@ window.onclick = function(event) {
 }
 
 window.addEventListener('scroll', ()=>{
-    checkPosition();
+    if (!checkbox.checked){
+        checkPosition();
+    }
     handleScroll();
 });
 

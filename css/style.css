@@ -103,7 +103,6 @@ body{
 .scrollToTopBtn:hover{
     border:none;
     outline: none;
-    transform: rotate(90deg);
 }
 
 .loader {
@@ -217,6 +216,72 @@ body{
     position: absolute;
     top: 0;
     left: 0;
+}
+
+.form-check{
+    margin: 50px 0 0 5%;
+}
+
+.form-check__label,
+.pagination__current_page{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+}
+
+.pagination{ 
+    display: none;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.pagination div{
+    width: 52px;
+    height: 52px;
+    margin-right: 20px;
+}
+
+.pagination__button-prev{
+    background: url('../img/button_paginator.svg') 0 0 no-repeat;
+    transform: rotate(180deg);
+    cursor: pointer;
+}
+
+.pagination__button-next{
+    background: url('../img/button_paginator.svg') 0 0 no-repeat;
+    cursor: pointer;
+}
+
+.pagination__button-next_disable{
+    background: url('../img/button_paginator_inactive.svg') 0 0 no-repeat;
+    transform: rotate(180deg);
+}
+
+.pagination__button-prev_disable{
+    background: url('../img/button_paginator_inactive.svg') 0 0 no-repeat;
+    transform: rotate(360deg);
+}
+
+.pagination__current_page{
+    display: flex;
+    border-radius: 50%;
+    background-color: #F1CDB3;
+    color: rgba(41, 41, 41, 1);
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    transition: 1s;
+}
+
+.pagination__current_page:hover{
+    background-color: #FDDCC4;
+}
+
+.pagination__current_page:active{
+    background-color: #F1CDB3;
+}
+
+.pagination_visible{
+    display: flex;
 }
 
 @media (max-width:992px){
